@@ -1,0 +1,20 @@
+<% if false %>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Jlpt</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'index' %>
+    </head>
+    <body>
+      <%= yield %>
+    </body>
+  </html>
+<% end %>
+<%= form_with(url: "api/v1/words/input_field_name", method: :get, local: true) do |f| %>
+  <%= f.text_field :input_field_name %>
+  <%= f.submit 'Search', input_field_name: nil %>
+<% end %>

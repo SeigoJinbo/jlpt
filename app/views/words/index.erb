@@ -1,0 +1,7 @@
+<% @words[0..9].each do |word| %>
+  <h1><%= word.name %></h1>
+  <p><% word.definition.to_a.each do |item| %></p>
+    <%= item[1]["type"] %>
+    <%= item[1]["meaning"] %>
+  <% end %>
+<% end %>
