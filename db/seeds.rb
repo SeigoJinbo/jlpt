@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'httparty'
-require 'byebug'
+# require 'byebug'
 require 'open-uri'
 
 # Word.select {|word|word.definition.values.map{|item| item['meaning']}.join('').include?('change')}
