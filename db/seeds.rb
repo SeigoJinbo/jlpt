@@ -211,13 +211,15 @@ end
 # words = Word.all.where(jlpt: 4)
 # words[125..-1].each { |word| kanji_scraper(word) }
 
-n3list = wiki_scraper(3)
-n3list.each { |word| word_scraper(word) }
-words = Word.all.where(jlpt: 3)
-words.each { |word| kanji_scraper(word) }
+# n3list = wiki_scraper(3)
+# n3list.each { |word| word_scraper(word) }
+# words = Word.all.where(jlpt: 3)
+# words.each { |word| kanji_scraper(word) }
 
-# n2list = wiki_scraper(2)
-# n2list[631..-1].each { |word| word_scraper(word) }
+n2list = wiki_scraper(2)
+n2list[0..71].each { |word| word_scraper(word) }
+n2list[73..629].each { |word| word_scraper(word) }
+
 # words = Word.all.where(jlpt: 2)
 # words[1201..-1].each { |word| kanji_scraper(word) }
 
