@@ -224,27 +224,27 @@ end
 # words = Word.all.where(jlpt: 2)
 # words[1201..-1].each { |word| kanji_scraper(word) }
 
-char = 'あ行'
+char = 'は行'
 kanji = converter(char)
 n1list = wiki_scraper_n1(kanji)
 n1list.each { |word| word_scraper(word) }
 
-char = 'か行'
+char = 'ま行'
 kanji = converter(char)
 n1list = wiki_scraper_n1(kanji)
 n1list.each { |word| word_scraper(word) }
 
-char = 'さ行'
+char = 'や行'
 kanji = converter(char)
 n1list = wiki_scraper_n1(kanji)
 n1list.each { |word| word_scraper(word) }
 
-char = 'た行'
+char = 'ら行'
 kanji = converter(char)
 n1list = wiki_scraper_n1(kanji)
 n1list.each { |word| word_scraper(word) }
 
-char = 'な行'
+char = 'わ行'
 kanji = converter(char)
 n1list = wiki_scraper_n1(kanji)
 n1list.each { |word| word_scraper(word) }
