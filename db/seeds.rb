@@ -222,7 +222,7 @@ end
 # n2list[631..-1].each { |word| word_scraper(word) }
 
 words = Word.all.where(jlpt: 2)
-words[0..1200].each { |word| kanji_scraper(word) }
+words[1201..-1].each { |word| kanji_scraper(word) }
 
 # char = 'わ行'
 # kanji = converter(char)
