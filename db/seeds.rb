@@ -19,19 +19,39 @@ N5LIST = []
 N4LIST = []
 
 def wiki_scraper(level)
+  output = []
   url = "https://en.wiktionary.org/wiki/Appendix:JLPT/N#{level}"
   unparsed_page = URI.open(url)
   parsed_page = Nokogiri.HTML(unparsed_page)
   list = parsed_page.css('div.mw-parser-output').css('li')
   list.each do |item|
     if item.css('a').any?
-      N5LIST << item.css('a').first.text
+      output << item.css('a').first.text
       puts "adding #{item.css('a').first.text} to the list"
     else
-      N5LIST << item.text.slice(/[|]\W+}/).slice(1..-3)
+      output << item.text.slice(/[|]\W+}/).slice(1..-3)
       puts "adding #{item.text.slice(/[|]\W+}/).slice(1..-3)} to the list"
     end
   end
+  output
+end
+
+def wiki_scraper_n1(level)
+  output = []
+  url = "https://en.wiktionary.org/wiki/Appendix:JLPT/N1/#{level}"
+  unparsed_page = URI.open(url)
+  parsed_page = Nokogiri.HTML(unparsed_page)
+  list = parsed_page.css('div.mw-parser-output').css('li')
+  list.each do |item|
+    if item.css('a').any?
+      output << item.css('a').first.text
+      puts "adding #{item.css('a').first.text} to the list"
+    else
+      output << item.text.slice(/[|]\W+}/).slice(1..-3)
+      puts "adding #{item.text.slice(/[|]\W+}/).slice(1..-3)} to the list"
+    end
+  end
+  output
 end
 
 def converter(input)
@@ -170,8 +190,8 @@ def kanji_scraper(word)
           puts "successfully created kanji: #{char}"
         end
       end
-    elsif KanjiWord.where(word: word, kanji: kanji)
-      puts 'attachment already exists'
+      # elsif KanjiWord.where(word: word, kanji: kanji)
+      #   puts 'attachment already exists'
     else
       word.kanjis << Kanji.where(character: char)
       puts "successfully attached existing kanji to #{word.name}"
@@ -180,9 +200,33 @@ def kanji_scraper(word)
 end
 # word_list.each { |word| word_scraper(word) }
 
-wiki_scraper(5)
 # N5LIST[101..200].each { |word| word_scraper(word) }
-N5LIST.each { |word| word_scraper(word) }
-
-words = Word.all
+n5list = wiki_scraper(5)
+n5list.each { |word| word_scraper(word) }
+words = Word.all.where(jlpt: 5)
 words.each { |word| kanji_scraper(word) }
+
+# n4list = wiki_scraper(4)
+# n4list.each { |word| word_scraper(word) }
+# words = Word.all.where(jlpt: 4)
+# words[125..-1].each { |word| kanji_scraper(word) }
+
+# n3list = wiki_scraper(3)
+# n3list.each { |word| word_scraper(word) }
+# words = Word.all.where(jlpt: 3)
+# words.each { |word| kanji_scraper(word) }
+
+# n2list = wiki_scraper(2)
+# n2list[631..-1].each { |word| word_scraper(word) }
+# words = Word.all.where(jlpt: 2)
+# words[1201..-1].each { |word| kanji_scraper(word) }
+
+# char = 'わ行'
+# kanji = converter(char)
+# n1list = wiki_scraper_n1(kanji)
+# n1list.each { |word| word_scraper(word) }
+
+# words = Word.all.where(jlpt: 1)
+# words[1601..-1].each { |word| kanji_scraper(word) }
+
+#error log n2: 72, 630 (start at 73, 631)
