@@ -209,7 +209,7 @@ end
 n4list = wiki_scraper(4)
 n4list.each { |word| word_scraper(word) }
 words = Word.all.where(jlpt: 4)
-words[0..124].each { |word| kanji_scraper(word) }
+words[125..-1].each { |word| kanji_scraper(word) }
 
 # n3list = wiki_scraper(3)
 # n3list.each { |word| word_scraper(word) }
