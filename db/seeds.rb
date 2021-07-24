@@ -224,32 +224,32 @@ end
 # words = Word.all.where(jlpt: 2)
 # words[1201..-1].each { |word| kanji_scraper(word) }
 
-char = 'は行'
-kanji = converter(char)
-n1list = wiki_scraper_n1(kanji)
-n1list.each { |word| word_scraper(word) }
+# char = 'は行'
+# kanji = converter(char)
+# n1list = wiki_scraper_n1(kanji)
+# n1list.each { |word| word_scraper(word) }
 
-char = 'ま行'
-kanji = converter(char)
-n1list = wiki_scraper_n1(kanji)
-n1list.each { |word| word_scraper(word) }
+# char = 'ま行'
+# kanji = converter(char)
+# n1list = wiki_scraper_n1(kanji)
+# n1list.each { |word| word_scraper(word) }
 
-char = 'や行'
-kanji = converter(char)
-n1list = wiki_scraper_n1(kanji)
-n1list.each { |word| word_scraper(word) }
+# char = 'や行'
+# kanji = converter(char)
+# n1list = wiki_scraper_n1(kanji)
+# n1list.each { |word| word_scraper(word) }
 
-char = 'ら行'
-kanji = converter(char)
-n1list = wiki_scraper_n1(kanji)
-n1list.each { |word| word_scraper(word) }
+# char = 'ら行'
+# kanji = converter(char)
+# n1list = wiki_scraper_n1(kanji)
+# n1list.each { |word| word_scraper(word) }
 
-char = 'わ行'
-kanji = converter(char)
-n1list = wiki_scraper_n1(kanji)
-n1list.each { |word| word_scraper(word) }
+# char = 'わ行'
+# kanji = converter(char)
+# n1list = wiki_scraper_n1(kanji)
+# n1list.each { |word| word_scraper(word) }
 
-# words = Word.all.where(jlpt: 1)
-# words[1601..-1].each { |word| kanji_scraper(word) }
+words = Word.all.where(jlpt: 1)
+words[1..800].each { |word| kanji_scraper(word) }
 
 #error log n2: 72, 630 (start at 73, 631)
