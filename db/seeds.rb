@@ -221,13 +221,33 @@ end
 # n2list[73..629].each { |word| word_scraper(word) }
 # n2list[631..-1].each { |word| word_scraper(word) }
 
-words = Word.all.where(jlpt: 2)
-words[1201..-1].each { |word| kanji_scraper(word) }
+# words = Word.all.where(jlpt: 2)
+# words[1201..-1].each { |word| kanji_scraper(word) }
 
-# char = 'わ行'
-# kanji = converter(char)
-# n1list = wiki_scraper_n1(kanji)
-# n1list.each { |word| word_scraper(word) }
+char = 'あ行'
+kanji = converter(char)
+n1list = wiki_scraper_n1(kanji)
+n1list.each { |word| word_scraper(word) }
+
+char = 'か行'
+kanji = converter(char)
+n1list = wiki_scraper_n1(kanji)
+n1list.each { |word| word_scraper(word) }
+
+char = 'さ行'
+kanji = converter(char)
+n1list = wiki_scraper_n1(kanji)
+n1list.each { |word| word_scraper(word) }
+
+char = 'た行'
+kanji = converter(char)
+n1list = wiki_scraper_n1(kanji)
+n1list.each { |word| word_scraper(word) }
+
+char = 'な行'
+kanji = converter(char)
+n1list = wiki_scraper_n1(kanji)
+n1list.each { |word| word_scraper(word) }
 
 # words = Word.all.where(jlpt: 1)
 # words[1601..-1].each { |word| kanji_scraper(word) }
