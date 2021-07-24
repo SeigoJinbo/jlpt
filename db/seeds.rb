@@ -250,6 +250,6 @@ end
 # n1list.each { |word| word_scraper(word) }
 
 words = Word.all.where(jlpt: 1)
-words[1..800].each { |word| kanji_scraper(word) }
+words[0..800].each { |word| kanji_scraper(word) }
 
 #error log n2: 72, 630 (start at 73, 631)
