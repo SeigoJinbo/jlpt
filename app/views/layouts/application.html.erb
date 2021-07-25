@@ -14,7 +14,4 @@
     </body>
   </html>
 <% end %>
-<%= form_with(url: "api/v1/words/input_field_name", method: :get, local: true) do |f| %>
-  <%= f.text_field :input_field_name %>
-  <%= f.submit 'Search', input_field_name: nil %>
-<% end %>
+<h3>https://jlpt-api-01.herokuapp.com/api/v1/words/(type word here)</h3>
