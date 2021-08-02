@@ -12,7 +12,7 @@ def damnation
   Kanji.destroy_all
 end
 
-damnation if false
+damnation if true
 
 word_list = %w[大変 意見 大体 相変わらず]
 N5LIST = []
@@ -249,7 +249,7 @@ end
 # n1list = wiki_scraper_n1(kanji)
 # n1list.each { |word| word_scraper(word) }
 
-words = Word.all.where(jlpt: 1)
-words[1601..-1].each { |word| kanji_scraper(word) }
+# words = Word.all.where(jlpt: 1)
+# words[1601..-1].each { |word| kanji_scraper(word) }
 
 #error log n2: 72, 630 (start at 73, 631)
